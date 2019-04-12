@@ -66,6 +66,5 @@ function spawnCreep(name, role) {
 	else if (role == 2)
 		nameRole = 'builder';
 
-	Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name);
-	Game.creeps[name].memory.role = nameRole;
+	Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {'role': nameRole});
 }
