@@ -52,10 +52,13 @@ module.exports.loop = function () {
 	}
 	for (var i = numbersOfUpgraders ; i < maxUpgraders ; i++) {
 		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Upgray' + i,
-			{memory: {role: 'harvester'}});
+			{memory: {role: 'upgrader'}});
 	}
 	for (var i = numbersOfBuilders ; i < maxBuilders ; i++) {
 		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Bob' + i,
-			{memory: {role: 'harvester'}});
+			{memory: {role: 'builder'}});
 	}
+	console.log('h: '+numbersOfHarvesters+'/'+maxHarvesters
+		+' u: '+numbersOfUpgraders+'/'+maxUpgraders
+		+' b: '+numbersOfBuilders+'/'+maxBuilders);
 }
