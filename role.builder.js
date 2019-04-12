@@ -18,13 +18,13 @@ var roleBuilder = {
 					creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
 				}
 			}
-		} else if (creep.carry.energy == creep.carryCapacity) {
-			creep.moveTo(Game.flags['Rest'], {visualizePathStyle: {stroke: '#0000ff'}});
-		} else {
+		} else if (creep.carry.energy < creep.carryCapacity) {
 			var sources = creep.room.find(FIND_SOURCES);
 			if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
 				creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
 			}
+		} else {
+			creep.moveTo(Game.flags['Rest'], {visualizePathStyle: {stroke: '#0000ff'}});
 		}
 	}
 };
