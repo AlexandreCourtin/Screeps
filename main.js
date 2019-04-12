@@ -45,7 +45,7 @@ module.exports.loop = function () {
 		}
 	}
 
-	//SPAWN SCREEPS
+	//SPAWN CREEPS
 	for (i = numbersOfHarvesters ; i < maxHarvesters ; i++) {
 		spawnCreep('Harvey' + i, 0);
 	}
@@ -67,6 +67,5 @@ function spawnCreep(name, role) {
 		nameRole = 'builder';
 
 	Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name);
-	var creep = Game.creeps[name];
-	creep.memory.role = nameRole;
+	Game.creeps[name].memory.role = nameRole;
 }
