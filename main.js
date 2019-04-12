@@ -47,17 +47,17 @@ module.exports.loop = function () {
 
 	//SPAWN SCREEPS
 	for (i = numbersOfHarvesters ; i < maxHarvesters ; i++) {
-		spawnScreep('Friendly Harverster ' + i, 0);
+		spawnCreep('Harvey' + i, 0);
 	}
 	for (i = numbersOfUpgraders ; i < maxUpgraders ; i++) {
-		spawnScreep('Friendly Upgrader ' + i, 1);
+		spawnCreep('Upgray' + i, 1);
 	}
 	for (i = numbersOfBuilders ; i < maxBuilders ; i++) {
-		spawnScreep('Friendly Builder ' + i, 2);
+		spawnCreep('Bob' + i, 2);
 	}
 }
 
-function spawnScreep(name, role) {
+function spawnCreep(name, role) {
 	var nameRole;
 	if (role == 0)
 		nameRole = 'harvester';
@@ -66,6 +66,7 @@ function spawnScreep(name, role) {
 	else if (role == 2)
 		nameRole = 'builder';
 
-	var creep = Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name);
+	Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name);
+	var creep = Game.creeps[name];
 	creep.memory.role = nameRole;
 }
