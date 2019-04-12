@@ -46,25 +46,13 @@ module.exports.loop = function () {
 	}
 
 	//SPAWN CREEPS
-	for (i = numbersOfHarvesters ; i < maxHarvesters ; i++) {
-		spawnCreep('Harvey' + i, 0);
+	for (var i = numbersOfHarvesters ; i < maxHarvesters ; i++) {
+		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Harvey' + i, role: 'harvester');
 	}
-	for (i = numbersOfUpgraders ; i < maxUpgraders ; i++) {
-		spawnCreep('Upgray' + i, 1);
+	for (var i = numbersOfUpgraders ; i < maxUpgraders ; i++) {
+		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Upgray' + i);
 	}
-	for (i = numbersOfBuilders ; i < maxBuilders ; i++) {
-		spawnCreep('Bob' + i, 2);
+	for (var i = numbersOfBuilders ; i < maxBuilders ; i++) {
+		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Bob' + i);
 	}
-}
-
-function spawnCreep(name, role) {
-	var nameRole;
-	if (role == 0)
-		nameRole = 'harvester';
-	else if (role == 1)
-		nameRole = 'upgrader';
-	else if (role == 2)
-		nameRole = 'builder';
-
-	Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {role: nameRole});
 }
