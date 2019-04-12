@@ -47,12 +47,15 @@ module.exports.loop = function () {
 
 	//SPAWN CREEPS
 	for (var i = numbersOfHarvesters ; i < maxHarvesters ; i++) {
-		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Harvey' + i, {role: 'harvester'});
+		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Harvey' + i);
+		Game.creep['Harvey' + i].memory.role = 'harvester';
 	}
 	for (var i = numbersOfUpgraders ; i < maxUpgraders ; i++) {
-		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Upgray' + i, {role: 'harvester'});
+		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Upgray' + i);
+		Game.creep['Upgray' + i].memory.role = 'harvester';
 	}
 	for (var i = numbersOfBuilders ; i < maxBuilders ; i++) {
-		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Bob' + i, {role: 'harvester'});
+		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Bob' + i);
+		Game.creep['Bob' + i].memory.role = 'harvester';
 	}
 }
