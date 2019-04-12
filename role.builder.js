@@ -19,6 +19,7 @@ var roleBuilder = {
 				}
 			}
 		} else if (creep.carry.energy == creep.carryCapacity) {
+			console.log('coucou');
 			var rest = Game.flags['rest'];
 			creep.moveTo(rest, {visualizePathStyle: {stroke: '#0000ff'}});
 		} else {
