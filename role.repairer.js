@@ -27,15 +27,18 @@ var roleRepairer = {
 					}
 					i++;
 				}
+				console.log('step1');
 				if (registeredI != -1) {
 					if (creep.repair(targets[registeredI]) == ERR_NOT_IN_RANGE) {
 						creep.moveTo(targets[registeredI], {visualizePathStyle: {stroke: '#ffffff'}});
 					}
 				} else if (creep.carry.energy != creep.carryCapacity) {
+					console.log('step2');
 					harvestSources(creep);
 				} else {
 					goToRest(creep);
 				}
+				console.log('step3');
 			} else {
 				goToRest(creep);
 			}
