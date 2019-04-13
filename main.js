@@ -57,7 +57,7 @@ module.exports.loop = function () {
 		filter: (structure) => structure.structureType == STRUCTURE_TOWER
 	});
 	if (towers.length) {
-		for each (tower in towers) {
+		foreach (tower in towers) {
 			/*var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
 				filter: (structure) => structure.hits < structure.hitsMax
 			});
