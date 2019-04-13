@@ -30,7 +30,7 @@ var roleRepairer = {
 					if (creep.repair(targets[registeredI]) == ERR_NOT_IN_RANGE) {
 						creep.moveTo(targets[registeredI], {visualizePathStyle: {stroke: '#ffffff'}});
 					}
-				} else if (creep.carry.energy < creep.carryCapacity) {
+				} else if (creep.carry.energy != creep.carryCapacity) {
 					harvestSources(creep);
 				} else {
 					goToRest(creep);
