@@ -2,7 +2,7 @@ var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 
-const maxHarvesters = 1;
+const maxHarvesters = 2;
 const maxUpgraders = 1;
 const maxBuilders = 1;
 
