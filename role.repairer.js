@@ -14,16 +14,21 @@ var roleRepairer = {
 		if (creep.memory.repairing) {
 			var targets = creep.room.find(FIND_STRUCTURES);
 			var i = 0;
+			var registeredI = -1;
+			var minHits = 6000;
 			if (targets.length > 0) {
 				while (i < targets.length) {
 					if (targets[i].hits < targets[i].hitsMax) {
-						break ;
+						if (targets[i].hits < minHits) {
+							minHits = targets[i].hits;
+							registeredI = i;
+						}
 					}
 					i++;
 				}
-				if (i < targets.length) {
-					if (creep.repair(targets[i]) == ERR_NOT_IN_RANGE) {
-						creep.moveTo(targets[i], {visualizePathStyle: {stroke: '#ffffff'}});
+				if (registeredI != -1) {
+					if (creep.repair(targets[registeredI]) == ERR_NOT_IN_RANGE) {
+						creep.moveTo(targets[registeredI], {visualizePathStyle: {stroke: '#ffffff'}});
 					}
 				} else {
 					creep.moveTo(Game.flags['Rest'], {visualizePathStyle: {stroke: '#0000ff'}});
