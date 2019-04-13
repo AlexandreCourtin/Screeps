@@ -21,10 +21,13 @@ var roleRepairer = {
 					}
 					i++;
 				}
+				console.log(i);
 				if (i < targets.length) {
 					if (creep.repair(targets[i]) == ERR_NOT_IN_RANGE) {
 						creep.moveTo(targets[i], {visualizePathStyle: {stroke: '#ffffff'}});
 					}
+				} else {
+					creep.moveTo(Game.flags['Rest'], {visualizePathStyle: {stroke: '#0000ff'}});
 				}
 			} else {
 				creep.moveTo(Game.flags['Rest'], {visualizePathStyle: {stroke: '#0000ff'}});
