@@ -52,18 +52,18 @@ module.exports.loop = function () {
 		}
 	}
 
-	//SPAWN CREEPS
+	//SPAWN CREEPS -- WORK 100 CARRY 50 MOVE 50
 	if (numbersOfHarvesters < maxHarvesters) {
-		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Harvey',
+		Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], 'Harvey',
 			{memory: {role: 'harvester'}});
 	} else if (numbersOfUpgraders < maxUpgraders) {
-		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Upgray',
+		Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], 'Upgray',
 			{memory: {role: 'upgrader'}});
 	} else if (numbersOfBuilders < maxBuilders) {
-		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Bob',
+		Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], 'Bob',
 			{memory: {role: 'builder'}});
 	} else if (numbersOfRepairers < maxRepairers) {
-		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Reparo',
+		Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], 'Reparo',
 			{memory: {role: 'repairer'}});
 	}
 	console.log('h: '+numbersOfHarvesters+'/'+maxHarvesters
