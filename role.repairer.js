@@ -21,7 +21,7 @@ var roleRepairer = {
 					}
 					i++;
 				}
-				console.log(targets[i]);
+				console.log(targets[i].structureType);
 				if (i < targets.length) {
 					if (creep.repair(targets[i]) == ERR_NOT_IN_RANGE) {
 						creep.moveTo(targets[i], {visualizePathStyle: {stroke: '#ffffff'}});
