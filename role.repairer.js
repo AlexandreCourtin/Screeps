@@ -12,7 +12,7 @@ var roleRepairer = {
 			creep.say('repairing');
 		}
 		if (creep.memory.repairing) {
-			var targets = creep.room.find(FIND_MY_STRUCTURES);
+			var targets = creep.room.find(FIND_STRUCTURES);
 			var i = 0;
 			if (targets.length > 0) {
 				while (i < targets.length) {
@@ -22,7 +22,7 @@ var roleRepairer = {
 					}
 					i++;
 				}
-				console.log(targets[i]);
+				console.log(targets[i] + ' nb: ' + i);
 				if (i < targets.length) {
 					if (creep.repair(targets[i]) == ERR_NOT_IN_RANGE) {
 						creep.moveTo(targets[i], {visualizePathStyle: {stroke: '#ffffff'}});
