@@ -21,7 +21,7 @@ var roleBuilder = {
 				creep.moveTo(Game.flags['Rest'], {visualizePathStyle: {stroke: '#0000ff'}});
 			}
 		} else {
-			var source = creep.room.findClosestByRange(FIND_SOURCES);
+			var source = creep.pos.findClosestByRange(FIND_SOURCES);
 			if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
 				creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
 			}
