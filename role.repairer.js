@@ -30,19 +30,29 @@ var roleRepairer = {
 					if (creep.repair(targets[registeredI]) == ERR_NOT_IN_RANGE) {
 						creep.moveTo(targets[registeredI], {visualizePathStyle: {stroke: '#ffffff'}});
 					}
+				} else if (creep.carry.energy < creep.carryCapacity) {
+					harvestSources(creep);
 				} else {
-					creep.moveTo(Game.flags['Rest'], {visualizePathStyle: {stroke: '#0000ff'}});
+					goToRest(creep);
 				}
 			} else {
-				creep.moveTo(Game.flags['Rest'], {visualizePathStyle: {stroke: '#0000ff'}});
+				goToRest(creep);
 			}
 		} else {
-			var source = creep.pos.findClosestByRange(FIND_SOURCES);
-			if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
-				creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
-			}
+			harvestSources(creep);
 		}
 	}
 };
+
+function harvestSources(creep) {
+	var source = creep.pos.findClosestByRange(FIND_SOURCES);
+	if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
+		creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
+	}
+}
+
+function goToRest(creep) {
+	creep.moveTo(Game.flags['Rest'], {visualizePathStyle: {stroke: '#0000ff'}});
+}
 
 module.exports = roleRepairer;
