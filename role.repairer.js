@@ -14,14 +14,14 @@ var roleRepairer = {
 		if (creep.memory.repairing) {
 			var targets = creep.room.find(FIND_MY_STRUCTURES);
 			var i = 0;
-			if (targets.length) {
+			if (targets.length > 0) {
 				while (i < targets.length) {
 					if (targets[i].hits < targets[i].hitsMax) {
 						break ;
 					}
 					i++;
 				}
-				console.log(targets[i].structureType);
+				console.log(targets[0]);
 				if (i < targets.length) {
 					if (creep.repair(targets[i]) == ERR_NOT_IN_RANGE) {
 						creep.moveTo(targets[i], {visualizePathStyle: {stroke: '#ffffff'}});
