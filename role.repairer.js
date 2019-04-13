@@ -15,7 +15,7 @@ var roleRepairer = {
 			var targets = creep.room.find(FIND_STRUCTURES);
 			var i = 0;
 			var registeredI = -1;
-			var minHits = 6000;
+			var minHits = 30000;
 			if (targets.length > 0) {
 				while (i < targets.length) {
 					if (targets[i].hits < targets[i].hitsMax) {
