@@ -1,3 +1,5 @@
+var basicCommand = require('basic.command');
+
 var roleRepairer = {
 
 	/** @param {Creep} creep **/
@@ -31,28 +33,17 @@ var roleRepairer = {
 						creep.moveTo(targets[registeredI], {visualizePathStyle: {stroke: '#ffffff'}});
 					}
 				} else {
-					goToRest(creep);
+					basicCommand.goToRest(creep);
 				}
 			} else if (creep.carry.energy != creep.carryCapacity) {
-				harvestSources(creep);
+				basicCommand.harvestSource(creep);
 			} else {
-				goToRest(creep);
+				basicCommand.goToRest(creep);
 			}
 		} else {
-			harvestSources(creep);
+			basicCommand.harvestSource(creep);
 		}
 	}
 };
-
-function harvestSources(creep) {
-	var source = creep.pos.findClosestByRange(FIND_SOURCES);
-	if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
-		creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
-	}
-}
-
-function goToRest(creep) {
-	creep.moveTo(Game.flags['Rest'], {visualizePathStyle: {stroke: '#0000ff'}});
-}
 
 module.exports = roleRepairer;
