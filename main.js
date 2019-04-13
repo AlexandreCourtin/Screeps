@@ -10,21 +10,6 @@ const maxRepairers = 1;
 
 module.exports.loop = function () {
 
-	/*var tower = Game.getObjectById('TOWER_ID');
-	if (tower) {
-		var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-			filter: (structure) => structure.hits < structure.hitsMax
-		});
-		if (closestDamagedStructure) {
-			tower.repair(closestDamagedStructure);
-		}
-
-		var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-		if (closestHostile) {
-			tower.attack(closestHostile);
-		}
-	}*/
-
 	//INIT
 	var numbersOfHarvesters = 0;
 	var numbersOfUpgraders = 0;
@@ -66,6 +51,28 @@ module.exports.loop = function () {
 		Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], 'Reparo',
 			{memory: {role: 'repairer'}});
 	}
+
+	//TOWERS
+	var towers = creep.room.find(FIND_STRUCTURES, {
+		filter: (structure) => structure.structureType == STRUCTURE_TOWER
+	});
+	if (towers.length) {
+		for each (tower in towers) {
+			/*var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+				filter: (structure) => structure.hits < structure.hitsMax
+			});
+			if (closestDamagedStructure) {
+				tower.repair(closestDamagedStructure);
+			}*/
+
+			var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+			if (closestHostile) {
+				tower.attack(closestHostile);
+			}
+		}
+	}
+
+	//LOG
 	console.log('h: '+numbersOfHarvesters+'/'+maxHarvesters
 		+' u: '+numbersOfUpgraders+'/'+maxUpgraders
 		+' b: '+numbersOfBuilders+'/'+maxBuilders

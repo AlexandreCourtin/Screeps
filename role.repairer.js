@@ -12,17 +12,17 @@ var roleRepairer = {
 			creep.say('repairing');
 		}
 		if (creep.memory.repairing) {
-			var targets = creep.room.find(FIND_STRUCTURES);
+			var targets = creep.room.find(FIND_STRUCTURES, {
+				filter: (structure) => structure.hits < structure.hitsMax
+			});
 			var i = 0;
 			var registeredI = -1;
 			var minHits = 30000;
 			if (targets.length > 0) {
 				while (i < targets.length) {
-					if (targets[i].hits < targets[i].hitsMax) {
-						if (targets[i].hits < minHits) {
-							minHits = targets[i].hits;
-							registeredI = i;
-						}
+					if (targets[i].hits < minHits) {
+						minHits = targets[i].hits;
+						registeredI = i;
 					}
 					i++;
 				}
