@@ -1,10 +1,12 @@
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
+var roleRepairer = require('role.repairer');
 
 const maxHarvesters = 1;
 const maxUpgraders = 1;
 const maxBuilders = 1;
+const maxRepairers = 1;
 
 module.exports.loop = function () {
 
@@ -27,6 +29,7 @@ module.exports.loop = function () {
 	var numbersOfHarvesters = 0;
 	var numbersOfUpgraders = 0;
 	var numbersOfBuilders = 0;
+	var numbersOfRepairers = 0;
 
 	//SCREEPS ROLES
 	for (var name in Game.creeps) {
@@ -35,13 +38,17 @@ module.exports.loop = function () {
 			numbersOfHarvesters++;
 			roleHarvester.run(creep);
 		}
-		if (creep.memory.role == 'upgrader') {
+		else if (creep.memory.role == 'upgrader') {
 			numbersOfUpgraders++;
 			roleUpgrader.run(creep);
 		}
-		if (creep.memory.role == 'builder') {
+		else if (creep.memory.role == 'builder') {
 			numbersOfBuilders++;
 			roleBuilder.run(creep);
+		}
+		else if (creep.memory.role == 'repairer') {
+			numbersOfRepairers++;
+			roleRepairer.run(creep);
 		}
 	}
 
@@ -55,8 +62,12 @@ module.exports.loop = function () {
 	} else if (numbersOfBuilders < maxBuilders) {
 		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Bob',
 			{memory: {role: 'builder'}});
+	} else if (numbersOfRepairers < maxRepairers) {
+		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Reparo',
+			{memory: {role: 'repairer'}});
 	}
 	console.log('h: '+numbersOfHarvesters+'/'+maxHarvesters
 		+' u: '+numbersOfUpgraders+'/'+maxUpgraders
-		+' b: '+numbersOfBuilders+'/'+maxBuilders);
+		+' b: '+numbersOfBuilders+'/'+maxBuilders
+		+' r: '+numbersOfRepairers+'/'+maxRepairers);
 }
