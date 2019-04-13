@@ -1,3 +1,5 @@
+var basicCommand = require('basic.command');
+
 var roleBuilder = {
 
 	/** @param {Creep} creep **/
@@ -18,13 +20,10 @@ var roleBuilder = {
 					creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
 				}
 			} else {
-				creep.moveTo(Game.flags['Rest'], {visualizePathStyle: {stroke: '#0000ff'}});
+				basicCommand.goToRest(creep);
 			}
 		} else {
-			var source = creep.pos.findClosestByRange(FIND_SOURCES);
-			if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
-				creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
-			}
+			basicCommand.harvestSource(creep);
 		}
 	}
 };

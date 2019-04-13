@@ -1,13 +1,12 @@
+var basicCommand = require('basic.command');
+
 var roleHarvester = {
 
 	/** @param {Creep} creep **/
 	run: function(creep) {
 
 		if (creep.carry.energy < creep.carryCapacity) {
-			var source = creep.pos.findClosestByRange(FIND_SOURCES);
-			if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
-				creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
-			}
+			basicCommand.harvestSource(creep);
 		} else {
 			var targets = creep.room.find(FIND_STRUCTURES, {
 				filter: (structure) => {
@@ -22,7 +21,7 @@ var roleHarvester = {
 					creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
 				}
 			} else {
-				creep.moveTo(Game.flags['Rest'], {visualizePathStyle: {stroke: '#0000ff'}});
+				basicCommand.goToRest(creep);
 			}
 		}
 	}
