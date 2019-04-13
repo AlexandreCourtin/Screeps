@@ -3,7 +3,7 @@ var roleRepairer = {
 	/** @param {Creep} creep **/
 	run: function(creep) {
 
-		console.log(creep.memory.repairing);
+		console.log(creep.carry.energy +' '+creep.carryCapacity);
 		if (creep.memory.repairing && creep.carry.energy == 0) {
 			creep.memory.repairing = false;
 			creep.say('harvesting');
