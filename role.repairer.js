@@ -17,12 +17,12 @@ var roleRepairer = {
 			if (targets.length > 0) {
 				while (i < targets.length) {
 					if (targets[i].hits < targets[i].hitsMax) {
+						console.log('break');
 						break ;
 					}
 					i++;
 				}
-				console.log(targets[1]);
-				console.log(targets[2]);
+				console.log(targets[i]);
 				if (i < targets.length) {
 					if (creep.repair(targets[i]) == ERR_NOT_IN_RANGE) {
 						creep.moveTo(targets[i], {visualizePathStyle: {stroke: '#ffffff'}});
