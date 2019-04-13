@@ -66,8 +66,8 @@ module.exports.loop = function () {
 		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Reparo',
 			{memory: {role: 'repairer'}});
 	}
-	/*console.log('h: '+numbersOfHarvesters+'/'+maxHarvesters
+	console.log('h: '+numbersOfHarvesters+'/'+maxHarvesters
 		+' u: '+numbersOfUpgraders+'/'+maxUpgraders
 		+' b: '+numbersOfBuilders+'/'+maxBuilders
-		+' r: '+numbersOfRepairers+'/'+maxRepairers);*/
+		+' r: '+numbersOfRepairers+'/'+maxRepairers);
 }
