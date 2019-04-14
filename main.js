@@ -5,7 +5,7 @@ var roleRepairer = require('role.repairer');
 
 const maxHarvesters = 1;
 const maxUpgraders = 1;
-const maxBuilders = 0;
+const maxBuilders = 1;
 const maxRepairers = 1;
 
 module.exports.loop = function () {
