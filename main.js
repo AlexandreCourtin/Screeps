@@ -5,7 +5,7 @@ var roleRepairer = require('role.repairer');
 
 const maxHarvesters = 1;
 const maxUpgraders = 1;
-const maxBuilders = 1;
+const maxBuilders = 0;
 const maxRepairers = 1;
 
 module.exports.loop = function () {
@@ -42,7 +42,7 @@ module.exports.loop = function () {
 		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE, MOVE], 'Harvey',
 			{memory: {role: 'harvester'}});
 	} else if (numbersOfUpgraders < maxUpgraders) {
-		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Upgray',
+		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE, MOVE], 'Upgray',
 			{memory: {role: 'upgrader'}});
 	} else if (numbersOfBuilders < maxBuilders) {
 		Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE, MOVE], 'Bob',
