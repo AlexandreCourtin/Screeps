@@ -60,7 +60,7 @@ module.exports.loop = function () {
 		});
 		if (towers.length) {
 			console.log(towers);
-			for (var tower in towers) {
+			for (var i ; i < towers.length ; i++) {
 				/*var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
 					filter: (structure) => structure.hits < structure.hitsMax
 				});
@@ -72,7 +72,7 @@ module.exports.loop = function () {
 				if (closestHostile) {
 					tower.attack(closestHostile);
 				}*/
-				console.log(tower.energy);
+				console.log(towers[i].energy);
 			}
 		}
 	}
