@@ -58,7 +58,6 @@ module.exports.loop = function () {
 		var towers = room.find(FIND_STRUCTURES, {
 			filter: (s) => s.structureType == STRUCTURE_TOWER
 		});
-		console.log(towers);
 		for (var i = 0 ; i < towers.length ; i++) {
 			/*var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
 				filter: (structure) => structure.hits < structure.hitsMax
@@ -67,11 +66,10 @@ module.exports.loop = function () {
 				tower.repair(closestDamagedStructure);
 			}*/
 
-			/*var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+			var closestHostile = towers[i].pos.findClosestByRange(FIND_HOSTILE_CREEPS);
 			if (closestHostile) {
-				tower.attack(closestHostile);
-			}*/
-			console.log(towers[i].energy);
+				towers[i].attack(closestHostile);
+			}
 		}
 	}
 
