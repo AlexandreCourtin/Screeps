@@ -67,10 +67,11 @@ module.exports.loop = function () {
 					tower.repair(closestDamagedStructure);
 				}*/
 
-				var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+				/*var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
 				if (closestHostile) {
 					tower.attack(closestHostile);
-				}
+				}*/
+				console.log(tower);
 			}
 		}
 	}
