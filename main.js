@@ -59,7 +59,7 @@ module.exports.loop = function () {
 			filter: (s) => s.structureType == STRUCTURE_TOWER
 		});
 		console.log(towers);
-		for (var i ; i < towers.length ; i++) {
+		for (var i = 0 ; i < towers.length ; i++) {
 			/*var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
 				filter: (structure) => structure.hits < structure.hitsMax
 			});
