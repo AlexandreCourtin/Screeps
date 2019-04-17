@@ -53,7 +53,13 @@ module.exports.loop = function () {
 	}
 
 	//TOWERS
-	var towers = creep.room.find(FIND_STRUCTURES, {
+	for (var name in Game.rooms) {
+		var room = Game.rooms[name];
+	}
+	/*var towers = Game.rooms.W61S27.find(FIND_STRUCTURES, {
+		filter: (s) => s.structureType == STRUCTURE_TOWER
+	});
+	var towers = Game.structures(FIND_STRUCTURES, {
 		filter: (structure) => structure.structureType == STRUCTURE_TOWER
 	});
 	if (towers.length) {
@@ -63,14 +69,14 @@ module.exports.loop = function () {
 			});
 			if (closestDamagedStructure) {
 				tower.repair(closestDamagedStructure);
-			}*/
+			}
 
 			var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
 			if (closestHostile) {
 				tower.attack(closestHostile);
 			}
 		}
-	}
+	}*/
 
 	//LOG
 	console.log('h: '+numbersOfHarvesters+'/'+maxHarvesters
