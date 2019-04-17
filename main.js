@@ -6,7 +6,7 @@ var roleRepairer = require('role.repairer');
 const maxHarvesters = 1;
 const maxUpgraders = 1;
 const maxBuilders = 1;
-const maxRepairers = 1;
+const maxRepairers = 0;
 
 module.exports.loop = function () {
 
@@ -59,12 +59,13 @@ module.exports.loop = function () {
 			filter: (s) => s.structureType == STRUCTURE_TOWER
 		});
 		for (var i = 0 ; i < towers.length ; i++) {
-			/*var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+
+			var closestDamagedStructure = towers[i].pos.findClosestByRange(FIND_STRUCTURES, {
 				filter: (structure) => structure.hits < structure.hitsMax
 			});
 			if (closestDamagedStructure) {
-				tower.repair(closestDamagedStructure);
-			}*/
+				towers[i].repair(closestDamagedStructure);
+			}
 
 			var closestHostile = towers[i].pos.findClosestByRange(FIND_HOSTILE_CREEPS);
 			if (closestHostile) {
