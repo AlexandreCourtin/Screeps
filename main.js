@@ -71,7 +71,7 @@ module.exports.loop = function () {
 				if (closestHostile) {
 					tower.attack(closestHostile);
 				}*/
-				console.log(tower);
+				console.log(tower.energy);
 			}
 		}
 	}
