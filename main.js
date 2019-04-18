@@ -21,9 +21,9 @@ module.exports.loop = function () {
 	var numbersOfRepairers = 0;
 
 	//SCREEPS ROLES
+	console.log("----");
 	for (var name in Game.creeps) {
 		var creep = Game.creeps[name];
-		console.log("----");
 		console.log("name: " + name + " ticksToLive: " + creep.ticksToLive);
 		if (creep.memory.role == 'harvester') {
 			numbersOfHarvesters++;
