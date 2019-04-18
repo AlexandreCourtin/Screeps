@@ -23,6 +23,7 @@ module.exports.loop = function () {
 	//SCREEPS ROLES
 	for (var name in Game.creeps) {
 		var creep = Game.creeps[name];
+		console.log("----");
 		console.log("name: " + name + " ticksToLive: " + creep.ticksToLive);
 		if (creep.memory.role == 'harvester') {
 			numbersOfHarvesters++;
@@ -80,8 +81,8 @@ module.exports.loop = function () {
 	}
 
 	//LOG
-	console.log('h: '+numbersOfHarvesters+'/'+maxHarvesters
+	/*console.log('h: '+numbersOfHarvesters+'/'+maxHarvesters
 		+' u: '+numbersOfUpgraders+'/'+maxUpgraders
 		+' b: '+numbersOfBuilders+'/'+maxBuilders
-		+' r: '+numbersOfRepairers+'/'+maxRepairers);
+		+' r: '+numbersOfRepairers+'/'+maxRepairers);*/
 }
