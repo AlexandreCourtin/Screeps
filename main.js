@@ -60,21 +60,19 @@ module.exports.loop = function () {
 
 	//TOWERS
 	for (var name in Game.rooms) {
-		var room = Game.rooms[name];
-		var towers = room.find(FIND_STRUCTURES, {
+		var towers = Game.rooms[name].find(FIND_STRUCTURES, {
 			filter: (s) => s.structureType == STRUCTURE_TOWER
 		});
-		for (var i = 0 ; i < towers.length ; i++) {
 
+		for (var i = 0 ; i < towers.length ; i++) {
 			var closestDamagedStructure = towers[i].pos.findClosestByRange(FIND_STRUCTURES, {
 				filter: (structure) => structure.hits < structure.hitsMax
 			});
+			var closestHostile = towers[i].pos.findClosestByRange(FIND_HOSTILE_CREEPS);
 			if (closestDamagedStructure) {
 				towers[i].repair(closestDamagedStructure);
 			}
-
-			var closestHostile = towers[i].pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-			if (closestHostile) {
+			else if (closestHostile) {
 				towers[i].attack(closestHostile);
 			}
 		}
